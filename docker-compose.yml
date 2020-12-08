@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+  db:
+    image: postgres:12
+    restart: always
+    container_name: db
+    hostname: db
+    ports:
+      - "10000:5432"
+    volumes:
+      - network_parser_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: parserDB
+      POSTGRES_PASSWORD: parserPassword
+  network_parser:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: network_parser
+    hostname: network_parser
+    restart: always
+    ports:
+      - "80"
+    depends_on:
+      - db
+
+volumes:
+  network_parser_data:
