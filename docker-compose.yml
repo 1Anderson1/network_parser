@@ -21,7 +21,7 @@ services:
     hostname: network_parser
     restart: always
     ports:
-      - "5000:80"
+      - "8080:8080"
     depends_on:
       - db
 
