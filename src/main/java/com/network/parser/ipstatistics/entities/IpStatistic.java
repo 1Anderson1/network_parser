@@ -12,12 +12,12 @@ import javax.persistence.*;
 public class IpStatistic {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "ip_address")
+    @Column(name = "ip_address", nullable = false)
     private String ipAddress;
 
-    @Column(name = "address_cound")
-    private int addressCount = 0;
+    @Column(name = "address_cound", nullable = false)
+    private long addressCount = 0;
 }

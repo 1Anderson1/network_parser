@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IpStatisticRepository extends JpaRepository<IpStatistic, Long> {
+
+    IpStatistic findByIpAddress(String ipAddress);
 }
